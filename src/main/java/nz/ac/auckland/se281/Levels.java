@@ -1,3 +1,7 @@
 package nz.ac.auckland.se281;
 
-public interface Levels {}
+import nz.ac.auckland.se281.Main.Choice;
+
+public interface Levels {
+  public void levelAlgorithm(int fingers, Choice choice, String playerName);
+}
