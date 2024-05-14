@@ -7,10 +7,12 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   int roundNumber;
+  String playerName;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
+    playerName = options[0];
     roundNumber = 0;
   }
 
@@ -21,6 +23,7 @@ public class Game {
 
     // get the number of fingers from the player
     int fingers = getFinger();
+    MessageCli.PRINT_INFO_HAND.printMessage(playerName, String.valueOf(fingers));
   }
 
   public int getFinger() {
