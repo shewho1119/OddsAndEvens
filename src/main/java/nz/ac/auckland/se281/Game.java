@@ -24,8 +24,14 @@ public class Game {
     // get the number of fingers from the player
     int fingers = getFinger();
     MessageCli.PRINT_INFO_HAND.printMessage(playerName, String.valueOf(fingers));
+
+    // Level: EASY
+    // get random number of fingers from the AI (0 ~ 5)
+    int fingersAI = Utils.getRandomNumberRange(0, 5);
+    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersAI));
   }
 
+  // method to get a valid number of fingers from the player
   public int getFinger() {
     while (true) {
       MessageCli.ASK_INPUT.printMessage();
