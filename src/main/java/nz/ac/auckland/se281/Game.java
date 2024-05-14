@@ -18,7 +18,28 @@ public class Game {
     // increment the round number everytime PLAY is invoked
     roundNumber++;
     MessageCli.START_ROUND.printMessage(String.valueOf(roundNumber));
-    MessageCli.ASK_INPUT.printMessage();
+
+    // get the number of fingers from the player
+    int fingers = getFinger();
+  }
+
+  public int getFinger() {
+    while (true) {
+      MessageCli.ASK_INPUT.printMessage();
+      String stringFingers = Utils.scanner.nextLine();
+      try {
+        int integerFingers = Integer.parseInt(stringFingers);
+
+        if (integerFingers >= 0 && integerFingers <= 5) {
+          return integerFingers;
+        } else {
+          MessageCli.INVALID_INPUT.printMessage();
+        }
+
+      } catch (NumberFormatException e) {
+        MessageCli.INVALID_INPUT.printMessage();
+      }
+    }
   }
 
   public void endGame() {}
