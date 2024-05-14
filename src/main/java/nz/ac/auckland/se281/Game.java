@@ -8,12 +8,14 @@ public class Game {
 
   int roundNumber;
   String playerName;
+  Choice choice;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
     playerName = options[0];
     roundNumber = 0;
+    this.choice = choice;
   }
 
   public void play() {
@@ -29,6 +31,21 @@ public class Game {
     // get random number of fingers from the AI (0 ~ 5)
     int fingersAI = Utils.getRandomNumberRange(0, 5);
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersAI));
+
+    int sum = fingers + fingersAI;
+    if (Utils.isEven(sum)) {
+      if (Choice.EVEN.equals(choice)) {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", playerName);
+      } else {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", "HAL-9000");
+      }
+    } else if (Utils.isOdd(sum)) {
+      if (Choice.ODD.equals(choice)) {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", playerName);
+      } else {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", "HAL-9000");
+      }
+    }
   }
 
   // method to get a valid number of fingers from the player
