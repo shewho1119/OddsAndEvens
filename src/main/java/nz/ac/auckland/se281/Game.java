@@ -10,6 +10,8 @@ public class Game {
   String playerName;
   Choice choice;
   Difficulty difficulty;
+  int oddCount;
+  int evenCount;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
@@ -18,6 +20,9 @@ public class Game {
     roundNumber = 0;
     this.choice = choice;
     this.difficulty = difficulty;
+
+    oddCount = 0;
+    evenCount = 0;
   }
 
   public void play() {
@@ -29,8 +34,14 @@ public class Game {
     int fingers = getFinger();
     MessageCli.PRINT_INFO_HAND.printMessage(playerName, String.valueOf(fingers));
 
+    if (Utils.isEven(fingers)) {
+      evenCount++;
+    } else if (Utils.isOdd(fingers)) {
+      oddCount++;
+    }
+
     Levels level = LevelFactory.createLevels(difficulty); // this will create an Americano
-    level.levelAlgorithm(fingers, choice, playerName);
+    level.levelAlgorithm(fingers, choice, playerName, roundNumber);
   }
 
   // method to get a valid number of fingers from the player

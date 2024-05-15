@@ -5,7 +5,7 @@ import nz.ac.auckland.se281.Main.Choice;
 public class Easy implements Levels {
 
   @Override
-  public void levelAlgorithm(int fingers, Choice choice, String playerName) {
+  public void levelAlgorithm(int fingers, Choice choice, String playerName, int roundNumber) {
 
     // get random number of fingers from the AI (0 ~ 5)
     int fingersAI = Utils.getRandomNumberRange(0, 5);
