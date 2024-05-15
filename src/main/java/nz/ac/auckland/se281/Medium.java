@@ -6,16 +6,17 @@ public class Medium implements Levels {
 
   @Override
   public void levelAlgorithm(int fingers, int roundNumber, Game game) {
-    int fingersAI = Utils.getRandomNumberRange(0, 5); // 0으로 고치기
+    int fingersAI;
+
+    // using Strategy design pattern to get the number of fingers from the AI
+    Strategy strategy = new Strategy(new TopStrategy(), game);
 
     if (roundNumber >= 4) {
-
-      Strategy strategy = new Strategy(new TopStrategy(), game);
       fingersAI = strategy.process();
-
     } else {
-      // get random number of fingers from the AI (0 ~ 5)
-      fingersAI = Utils.getRandomNumberRange(0, 5);
+      strategy.setStrategy(
+          new RandomStrategy()); // change strategy to RandomStrategy during runtime
+      fingersAI = strategy.process();
     }
 
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersAI));
