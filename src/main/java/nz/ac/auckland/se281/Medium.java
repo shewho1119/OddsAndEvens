@@ -10,21 +10,8 @@ public class Medium implements Levels {
 
     if (roundNumber >= 4) {
 
-      if (game.oddCount > game.evenCount) { // Player predominantly selected ODD numbers
-        if (game.choice == Choice.ODD) {
-          fingersAI = Utils.getRandomOddNumber();
-        } else if (game.choice == Choice.EVEN) {
-          fingersAI = Utils.getRandomEvenNumber();
-        }
-      } else if (game.evenCount > game.oddCount) { // Player predominantly selected EVEN numbers
-        if (game.choice == Choice.ODD) {
-          fingersAI = Utils.getRandomEvenNumber();
-        } else if (game.choice == Choice.EVEN) {
-          fingersAI = Utils.getRandomOddNumber();
-        }
-      } else { // Player selected an equal number of ODD and EVEN numbers
-        fingersAI = Utils.getRandomNumberRange(0, 5);
-      }
+      Strategy strategy = new Strategy(new TopStrategy(), game);
+      fingersAI = strategy.process();
 
     } else {
       // get random number of fingers from the AI (0 ~ 5)

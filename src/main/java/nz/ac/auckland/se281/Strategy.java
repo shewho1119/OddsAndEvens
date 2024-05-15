@@ -3,9 +3,11 @@ package nz.ac.auckland.se281;
 public class Strategy {
 
   StrategyType type;
+  Game game;
 
-  public Strategy(StrategyType type) {
+  public Strategy(StrategyType type, Game game) {
     this.type = type;
+    this.game = game;
   }
 
   public void setStrategy(StrategyType type) {
@@ -13,6 +15,6 @@ public class Strategy {
   }
 
   public Integer process() {
-    return type.getFingersAI();
+    return type.getFingersAI(game);
   }
 }

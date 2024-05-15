@@ -9,9 +9,8 @@ public class Easy implements Levels {
 
     int fingersAI;
 
-    // get random number of fingers from the AI (0 ~ 5)
-    // int fingersAI = Utils.getRandomNumberRange(0, 5);
-    Strategy strategy = new Strategy(new RandomStrategy());
+    // using Strategy design pattern to get the number of fingers from the AI
+    Strategy strategy = new Strategy(new RandomStrategy(), game);
     fingersAI = strategy.process();
 
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersAI));
