@@ -12,7 +12,7 @@ public class Strategy {
     this.type = type;
   }
 
-  public void process() {
-    type.getFingersAI();
+  public Integer process() {
+    return type.getFingersAI();
   }
 }

@@ -2,5 +2,9 @@ package nz.ac.auckland.se281;
 
 public class RandomStrategy implements StrategyType {
   @Override
-  public void getFingersAI() {}
+  public Integer getFingersAI() {
+    // get random number of fingers from the AI (0 ~ 5)
+    int fingersAI = Utils.getRandomNumberRange(0, 5);
+    return fingersAI;
+  }
 }
