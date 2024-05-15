@@ -41,7 +41,7 @@ public class Game {
     }
 
     Levels level = LevelFactory.createLevels(difficulty); // this will create an Americano
-    level.levelAlgorithm(fingers, choice, playerName, roundNumber, this);
+    level.levelAlgorithm(fingers, roundNumber, this);
   }
 
   // method to get a valid number of fingers from the player
