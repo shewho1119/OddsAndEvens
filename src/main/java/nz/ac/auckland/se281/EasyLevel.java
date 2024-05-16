@@ -1,6 +1,6 @@
 package nz.ac.auckland.se281;
 
-public class Easy implements Levels {
+public class EasyLevel implements Levels {
 
   @Override
   public void levelAlgorithm(int fingers, int roundNumber, Game game) {

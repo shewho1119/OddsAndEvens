@@ -6,13 +6,13 @@ public class LevelFactory {
   public static Levels createLevels(Difficulty difficulty) {
     switch (difficulty) {
       case EASY:
-        return new Easy();
+        return new EasyLevel();
 
       case MEDIUM:
         return new Medium();
 
       case HARD:
-        return new Hard();
+        return new HardLevel();
     }
     return null;
   }
