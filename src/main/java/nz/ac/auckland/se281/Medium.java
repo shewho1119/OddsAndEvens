@@ -4,22 +4,22 @@ public class Medium implements Levels {
 
   @Override
   public void levelAlgorithm(int fingers, int roundNumber, Game game) {
-    int fingersAI;
+    int fingersBot;
 
     // using Strategy design pattern to get the number of fingers from the AI
     Strategy strategy = new Strategy(new TopStrategy(), game);
 
     if (roundNumber >= 4) {
-      fingersAI = strategy.process();
+      fingersBot = strategy.process();
     } else {
       strategy.setStrategy(
           new RandomStrategy()); // change strategy to RandomStrategy during runtime
-      fingersAI = strategy.process();
+      fingersBot = strategy.process();
     }
 
-    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersAI));
+    MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersBot));
 
-    int sum = fingers + fingersAI;
+    int sum = fingers + fingersBot;
 
     game.findWinner(sum);
   }

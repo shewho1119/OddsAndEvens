@@ -1,5 +1,5 @@
 package nz.ac.auckland.se281;
 
 public interface StrategyType {
-  Integer getFingersAI(Game game);
+  Integer getfingersBot(Game game);
 }

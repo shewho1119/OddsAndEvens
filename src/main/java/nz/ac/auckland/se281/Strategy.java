@@ -15,6 +15,6 @@ public class Strategy {
   }
 
   public Integer process() {
-    return type.getFingersAI(game);
+    return type.getfingersBot(game);
   }
 }
