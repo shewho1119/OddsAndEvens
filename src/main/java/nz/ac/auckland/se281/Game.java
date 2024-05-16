@@ -98,6 +98,8 @@ public class Game {
       MessageCli.PRINT_END_GAME.printMessage("HAL-9000");
     } else if (playerWinNumber > aiWinNumber) {
       MessageCli.PRINT_END_GAME.printMessage(playerName);
+    } else if (playerWinNumber == aiWinNumber) {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
     }
   }
 
