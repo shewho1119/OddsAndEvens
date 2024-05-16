@@ -11,15 +11,13 @@ public class Hard implements Levels {
     // using Strategy design pattern to get the number of fingers from the AI
     Strategy strategy = new Strategy(new RandomStrategy(), game);
 
-    // System.out.println("lastStrategy is Top: " + game.lastStrategyTop);
-
     if (roundNumber >= 4) {
       if (!game.lastRoundWin) { // if lost in the last round
         game.lastStrategyTop = !game.lastStrategyTop; // switch strategy
       }
 
       if (game.lastStrategyTop) {
-        strategy.setStrategy(new RandomStrategy());
+        strategy.setStrategy(new TopStrategy());
       } else if (!game.lastStrategyTop) {
         strategy.setStrategy(new RandomStrategy());
       }
@@ -27,7 +25,6 @@ public class Hard implements Levels {
       fingersAI = strategy.process();
     } else {
       fingersAI = strategy.process();
-      // System.out.println("First 3 randoms");
     }
 
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersAI));
