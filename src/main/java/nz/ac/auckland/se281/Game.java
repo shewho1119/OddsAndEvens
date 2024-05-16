@@ -10,16 +10,22 @@ public class Game {
   String playerName;
   Choice choice;
   Difficulty difficulty;
+
   int oddCount;
   int evenCount;
+
   boolean lastRoundWin;
   boolean lastStrategyTop;
+
+  private boolean gameStarted;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
+
     playerName = options[0];
     roundNumber = 0;
+
     this.choice = choice;
     this.difficulty = difficulty;
 
@@ -28,9 +34,16 @@ public class Game {
 
     lastRoundWin = false;
     lastStrategyTop = false;
+
+    gameStarted = true;
   }
 
   public void play() {
+    if (!gameStarted) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     // increment the round number everytime PLAY is invoked
     roundNumber++;
     MessageCli.START_ROUND.printMessage(String.valueOf(roundNumber));
