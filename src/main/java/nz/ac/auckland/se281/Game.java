@@ -17,7 +17,7 @@ public class Game {
   boolean lastRoundWin;
   boolean lastStrategyTop;
 
-  private boolean gameStarted;
+  private boolean gameStarted = false;
 
   int playerWinNumber;
   int aiWinNumber;
@@ -101,6 +101,8 @@ public class Game {
     } else if (playerWinNumber == aiWinNumber) {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     }
+
+    gameStarted = false;
   }
 
   public void showStats() {
