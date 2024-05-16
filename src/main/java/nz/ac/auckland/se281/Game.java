@@ -88,6 +88,26 @@ public class Game {
     }
   }
 
+  public void findWinner(int sum) {
+    if (Utils.isEven(sum)) {
+      if (Choice.EVEN.equals(choice)) {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", playerName);
+        playerWinNumber++;
+      } else {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", "HAL-9000");
+        aiWinNumber++;
+      }
+    } else if (Utils.isOdd(sum)) {
+      if (Choice.ODD.equals(choice)) {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", playerName);
+        playerWinNumber++;
+      } else {
+        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", "HAL-9000");
+        aiWinNumber++;
+      }
+    }
+  }
+
   public void endGame() {
     if (!gameStarted) {
       MessageCli.GAME_NOT_STARTED.printMessage();

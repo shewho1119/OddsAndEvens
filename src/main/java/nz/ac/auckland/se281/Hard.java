@@ -37,22 +37,6 @@ public class Hard implements Levels {
 
     game.lastRoundWin = aiWon;
 
-    if (Utils.isEven(sum)) {
-      if (Choice.EVEN.equals(game.choice)) {
-        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", game.playerName);
-        game.playerWinNumber++;
-      } else {
-        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", "HAL-9000");
-        game.aiWinNumber++;
-      }
-    } else if (Utils.isOdd(sum)) {
-      if (Choice.ODD.equals(game.choice)) {
-        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", game.playerName);
-        game.playerWinNumber++;
-      } else {
-        MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", "HAL-9000");
-        game.aiWinNumber++;
-      }
-    }
+    game.findWinner(sum);
   }
 }
