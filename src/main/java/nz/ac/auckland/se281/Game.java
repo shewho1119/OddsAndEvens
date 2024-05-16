@@ -6,21 +6,51 @@ import nz.ac.auckland.se281.Main.Difficulty;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
-  int roundNumber;
-  String playerName;
-  Choice choice;
-  Difficulty difficulty;
+  private int roundNumber;
+  private String playerName;
+  private Choice choice;
 
-  int oddCount;
-  int evenCount;
+  public Choice getChoice() {
+    return choice;
+  }
 
-  boolean lastRoundWin;
-  boolean lastStrategyTop;
+  private Difficulty difficulty;
+
+  private int oddCount;
+  private int evenCount;
+
+  public int getOddCount() {
+    return oddCount;
+  }
+
+  public int getEvenCount() {
+    return evenCount;
+  }
+
+  private boolean lastRoundWin;
+
+  public boolean getLastRoundWin() {
+    return lastRoundWin;
+  }
+
+  public void setLastRoundWin(boolean lastRoundWin) {
+    this.lastRoundWin = lastRoundWin;
+  }
+
+  private boolean lastStrategyTop;
+
+  public boolean getLastStrategyTop() {
+    return lastStrategyTop;
+  }
+
+  public void setLastStrategyTop(boolean lastStrategyTop) {
+    this.lastStrategyTop = lastStrategyTop;
+  }
 
   private boolean gameStarted = false;
 
-  int playerWinNumber;
-  int aiWinNumber;
+  private int playerWinNumber;
+  private int aiWinNumber;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player

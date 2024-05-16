@@ -7,18 +7,20 @@ public class Hard implements Levels {
   @Override
   public void levelAlgorithm(int fingers, int roundNumber, Game game) {
     int fingersBot;
+    boolean previousTop;
 
     // using Strategy design pattern to get the number of fingers from the AI
     Strategy strategy = new Strategy(new RandomStrategy(), game);
 
     if (roundNumber >= 4) {
-      if (!game.lastRoundWin) { // if lost in the last round
-        game.lastStrategyTop = !game.lastStrategyTop; // switch strategy
+      if (!game.getLastRoundWin()) { // if lost in the last round
+        previousTop = game.getLastStrategyTop();
+        game.setLastStrategyTop(!previousTop); // switch strategy
       }
 
-      if (game.lastStrategyTop) {
+      if (game.getLastStrategyTop()) {
         strategy.setStrategy(new TopStrategy());
-      } else if (!game.lastStrategyTop) {
+      } else if (!game.getLastStrategyTop()) {
         strategy.setStrategy(new RandomStrategy());
       }
 
@@ -32,10 +34,10 @@ public class Hard implements Levels {
     int sum = fingers + fingersBot;
 
     boolean aiWon =
-        (Utils.isEven(sum) && !(Choice.EVEN.equals(game.choice)))
-            || (Utils.isOdd(sum) && !(Choice.ODD.equals(game.choice)));
+        (Utils.isEven(sum) && !(Choice.EVEN.equals(game.getChoice())))
+            || (Utils.isOdd(sum) && !(Choice.ODD.equals(game.getChoice())));
 
-    game.lastRoundWin = aiWon;
+    game.setLastRoundWin(aiWon);
 
     game.findWinner(sum);
   }
