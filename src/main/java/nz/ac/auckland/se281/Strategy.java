@@ -2,8 +2,8 @@ package nz.ac.auckland.se281;
 
 public class Strategy {
 
-  StrategyType type;
-  Game game;
+  private StrategyType type;
+  private Game game;
 
   public Strategy(StrategyType type, Game game) {
     this.type = type;
