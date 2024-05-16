@@ -9,9 +9,10 @@ public class Medium implements Levels {
     // using Strategy design pattern to get the number of fingers from the AI
     Strategy strategy = new Strategy(new TopStrategy(), game);
 
+    // after round 4, use TopStrategy
     if (roundNumber >= 4) {
       fingersBot = strategy.process();
-    } else {
+    } else { // before round 4, use RandomStrategy
       strategy.setStrategy(
           new RandomStrategy()); // change strategy to RandomStrategy during runtime
       fingersBot = strategy.process();
@@ -19,6 +20,7 @@ public class Medium implements Levels {
 
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(fingersBot));
 
+    // calculate the sum of player/AI fingers
     int sum = fingers + fingersBot;
 
     game.findWinner(sum);
