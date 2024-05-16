@@ -12,6 +12,8 @@ public class Game {
   Difficulty difficulty;
   int oddCount;
   int evenCount;
+  boolean lastRoundWin;
+  boolean lastStrategyTop;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
@@ -23,6 +25,9 @@ public class Game {
 
     oddCount = 0;
     evenCount = 0;
+
+    lastRoundWin = false;
+    lastStrategyTop = false;
   }
 
   public void play() {
@@ -40,7 +45,7 @@ public class Game {
       oddCount++;
     }
 
-    Levels level = LevelFactory.createLevels(difficulty); // this will create an Americano
+    Levels level = LevelFactory.createLevels(difficulty);
     level.levelAlgorithm(fingers, roundNumber, this);
   }
 
