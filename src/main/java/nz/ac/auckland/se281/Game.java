@@ -46,6 +46,17 @@ public class Game {
     this.lastStrategyTop = lastStrategyTop;
   }
 
+  /**
+   * Initializes a new game with the specified difficulty level, choice, and player options. This
+   * method sets up the initial state for a new game session, including resetting relevant counters
+   * and flags and prints a welcoming message with the player's name.
+   *
+   * @param difficulty The difficulty level chosen by the human player, which can be EASY, MEDIUM,
+   *     or HARD.
+   * @param choice The choice of the human player, which can be ODD or EVEN.
+   * @param options An array of options where the first element (options[0]) is expected to be the
+   *     player's name, which will be used to print the welcome message.
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -72,7 +83,13 @@ public class Game {
     aiWinNumber = 0;
   }
 
+  /**
+   * Executes a single round of a game by incrementing the round number and processing the
+   * corresponding strategies based on the difficulty level chosen by the player. The method also
+   * keeps track of the player's choice of even and odd numbers.
+   */
   public void play() {
+    // if the game has not started, print error message
     if (!gameStarted) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
@@ -99,7 +116,13 @@ public class Game {
     level.levelAlgorithm(fingers, roundNumber, this);
   }
 
-  // method to get a valid number of fingers from the player
+  /**
+   * This method gets the input of number of fingers from the player and checks if it is a valid
+   * input of one positive integer between 0 and 5 inclusive. If the input is invalid, the method
+   * will prompt the player to enter a valid input until a valid input is received.
+   *
+   * @return integerFingers a valid integer of fingers chosen by the player
+   */
   public int getFinger() {
     while (true) {
       // get the num of finger input from the player
@@ -123,6 +146,13 @@ public class Game {
     }
   }
 
+  /**
+   * This method determines the winner of the round based on the sum of the player's fingers and
+   * AI's fingers and the player's choice of even or odd numbers. The method will print the outcome
+   * of the round and increment the number of wins for the player or the AI accordingly.
+   *
+   * @param sum The sum of the player's and AI's fingers.
+   */
   public void findWinner(int sum) {
 
     if (Utils.isEven(sum)) { // if the sum is even
@@ -145,6 +175,11 @@ public class Game {
     }
   }
 
+  /**
+   * Ends the game by printing the final outcome of the game for three different scenarios of AI
+   * winning, Human Player winning and a tie. The method will also switch the gameStarted flag back
+   * to false to makesure the game has ended.
+   */
   public void endGame() {
     // if the game has not started, print error message
     if (!gameStarted) {
@@ -165,6 +200,12 @@ public class Game {
     gameStarted = false;
   }
 
+  /**
+   * This method is for SHOW-STATS command which will print the statistics of the game, that
+   * includes the number of wins out of the total rounds played for both the player and the AI.
+   * SHOW-STATS command can only be executed when a game is running, therefore, it will print an
+   * error message if the game has not started.
+   */
   public void showStats() {
     // if the game has not started, print error message
     if (!gameStarted) {

@@ -4,6 +4,15 @@ import nz.ac.auckland.se281.Main.Choice;
 
 public class HardLevel implements Levels {
 
+  /**
+   * This method is the algorithm for the hard level. For the first 3 rounds HARD will use the
+   * Random strategy, for the fourth round onwards the HARD level AI will switch strategy if the
+   * strategy lost in the previous round, otherwise will keep using that strategy.
+   *
+   * @param fingers the number of fingers the player has chosen
+   * @param roundNumber the current round number
+   * @param game the current game object
+   */
   @Override
   public void levelAlgorithm(int fingers, int roundNumber, Game game) {
     int fingersBot;

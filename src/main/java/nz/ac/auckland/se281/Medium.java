@@ -2,6 +2,15 @@ package nz.ac.auckland.se281;
 
 public class Medium implements Levels {
 
+  /**
+   * This method is the algorithm for the medium level. For the first 3 rounds the MEDIUM level will
+   * use the Random strategy, for the fourth round onwards the MEDIUM level will switch to the Top
+   * strategy and will keep that strategy until the current game ends.
+   *
+   * @param fingers the number of fingers the player has chosen
+   * @param roundNumber the current round number
+   * @param game the current game object
+   */
   @Override
   public void levelAlgorithm(int fingers, int roundNumber, Game game) {
     int fingersBot;

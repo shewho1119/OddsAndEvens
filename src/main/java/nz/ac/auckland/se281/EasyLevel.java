@@ -2,6 +2,14 @@ package nz.ac.auckland.se281;
 
 public class EasyLevel implements Levels {
 
+  /**
+   * This method is the algorithm for the easy level. The EASY level uses the Random strategy, and
+   * it will never change the strategy for the rest of the game.
+   *
+   * @param fingers the number of fingers the player has chosen
+   * @param roundNumber the current round number
+   * @param game the current game object
+   */
   @Override
   public void levelAlgorithm(int fingers, int roundNumber, Game game) {
 
