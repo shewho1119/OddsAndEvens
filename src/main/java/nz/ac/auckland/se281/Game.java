@@ -189,10 +189,37 @@ public class Game {
 
     // printing the end game message
     if (aiWinNumber > playerWinNumber) { // AI wins
+      // print the stats of the player
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          playerName,
+          String.valueOf(playerWinNumber),
+          String.valueOf(roundNumber - playerWinNumber));
+
+      // print the stats of the AI
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          "HAL-9000", String.valueOf(aiWinNumber), String.valueOf(roundNumber - aiWinNumber));
       MessageCli.PRINT_END_GAME.printMessage("HAL-9000");
     } else if (playerWinNumber > aiWinNumber) { // Player wins
+      // print the stats of the player
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          playerName,
+          String.valueOf(playerWinNumber),
+          String.valueOf(roundNumber - playerWinNumber));
+
+      // print the stats of the AI
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          "HAL-9000", String.valueOf(aiWinNumber), String.valueOf(roundNumber - aiWinNumber));
       MessageCli.PRINT_END_GAME.printMessage(playerName);
     } else if (playerWinNumber == aiWinNumber) { // Tie
+      // print the stats of the player
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          playerName,
+          String.valueOf(playerWinNumber),
+          String.valueOf(roundNumber - playerWinNumber));
+
+      // print the stats of the AI
+      MessageCli.PRINT_PLAYER_WINS.printMessage(
+          "HAL-9000", String.valueOf(aiWinNumber), String.valueOf(roundNumber - aiWinNumber));
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     }
 
