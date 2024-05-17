@@ -103,17 +103,17 @@ public class Game {
     int fingers = getFinger();
     MessageCli.PRINT_INFO_HAND.printMessage(playerName, String.valueOf(fingers));
 
+    // create the corresponding level class based on the difficulty
+    Levels level = LevelFactory.createLevels(difficulty);
+    // call the levelAlgorithm method of the corresponding level class
+    level.levelAlgorithm(fingers, roundNumber, this);
+
     // monitor how frequently the player chose evens and odds
     if (Utils.isEven(fingers)) {
       evenCount++;
     } else if (Utils.isOdd(fingers)) {
       oddCount++;
     }
-
-    // create the corresponding level class based on the difficulty
-    Levels level = LevelFactory.createLevels(difficulty);
-    // call the levelAlgorithm method of the corresponding level class
-    level.levelAlgorithm(fingers, roundNumber, this);
   }
 
   /**
