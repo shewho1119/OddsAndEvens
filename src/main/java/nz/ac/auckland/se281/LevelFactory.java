@@ -2,6 +2,11 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
+/**
+ * This class is used to create a level based on the difficulty that the player has chosen.
+ *
+ * @author Shihoo Park
+ */
 public class LevelFactory {
 
   /**
@@ -9,7 +14,7 @@ public class LevelFactory {
    * is part of the factory design pattern.
    *
    * @param difficulty The difficulty level the human player has chosen.
-   * @return Levels
+   * @return Levels The class that corresponds to the difficulty level.
    */
   public static Levels createLevels(Difficulty difficulty) {
     // create the level based on the difficulty the user has chosen

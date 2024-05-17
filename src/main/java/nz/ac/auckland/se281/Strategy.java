@@ -1,12 +1,18 @@
 package nz.ac.auckland.se281;
 
+/**
+ * This class is used to implement the Strategy design pattern. It manages the current strategy used
+ * by the AI and allows for dynamic changes to the strategy during runtime.
+ *
+ * @author Shihoo Park
+ */
 public class Strategy {
 
   private StrategyType type;
   private Game game;
 
   /**
-   * This constructor is used to create a new Strategy object with the given StrategyType and Game
+   * This constructor is used to create a new Strategy object with the given StrategyType and Game.
    *
    * @param type The type of strategy
    * @param game The current game object
@@ -21,7 +27,7 @@ public class Strategy {
    * will use. This will allow the strategy to change during the runtime as part of the Strategy
    * design pattern.
    *
-   * @param type
+   * @param type type of strategy to change
    */
   public void setStrategy(StrategyType type) {
     this.type = type;

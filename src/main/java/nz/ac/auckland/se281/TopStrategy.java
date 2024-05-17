@@ -2,7 +2,13 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * This class implements the StrategyType interface and contains the Top strategy algorithm.
+ *
+ * @author Shihoo Park
+ */
 public class TopStrategy implements StrategyType {
+
   /**
    * This method is used to implement one of the Strategy type of this game which is the TOP
    * strategy. In the TOP strategy, the AI predicts the player's next move based on the data of

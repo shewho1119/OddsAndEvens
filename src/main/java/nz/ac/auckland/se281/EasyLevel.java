@@ -1,5 +1,10 @@
 package nz.ac.auckland.se281;
 
+/**
+ * This class is used to implement the Easy level of the game.
+ *
+ * @author Shihoo Park
+ */
 public class EasyLevel implements Levels {
 
   /**

@@ -1,11 +1,16 @@
 package nz.ac.auckland.se281;
 
+/**
+ * This class implements the Levels interface and contains the algorithm for the MEDIUM level.
+ *
+ * @author Shihoo Park
+ */
 public class Medium implements Levels {
 
   /**
-   * This method is the algorithm for the medium level. For the first 3 rounds the MEDIUM level will
-   * use the Random strategy, for the fourth round onwards the MEDIUM level will switch to the Top
-   * strategy and will keep that strategy until the current game ends.
+   * This method contains the algorithm for the medium level. For the first 3 rounds the MEDIUM
+   * level will use the Random strategy, for the fourth round onwards the MEDIUM level will switch
+   * to the Top strategy and will keep that strategy until the current game ends.
    *
    * @param fingers the number of fingers the player has chosen
    * @param roundNumber the current round number

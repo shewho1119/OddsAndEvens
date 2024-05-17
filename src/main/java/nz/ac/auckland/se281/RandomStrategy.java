@@ -1,5 +1,11 @@
 package nz.ac.auckland.se281;
 
+/**
+ * This class implements the StrategyType interface and contains the algorithm for the RANDOM
+ * strategy.
+ *
+ * @author Shihoo Park
+ */
 public class RandomStrategy implements StrategyType {
   /**
    * This method is used to implement one of the Strategy type of this game which is the RANDOM

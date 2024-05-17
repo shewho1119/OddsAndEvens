@@ -2,6 +2,11 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * This class implements the Levels interface and contains the algorithm for the HARD level.
+ *
+ * @author Shihoo Park
+ */
 public class HardLevel implements Levels {
 
   /**
